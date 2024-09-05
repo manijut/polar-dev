@@ -1,0 +1,46 @@
+<div [ngStyle]="data?.component?.style['default']">
+  <ng-container *ngIf="data?.component">
+    <ng-container *ngIf="data?.component?.select">
+      <app-bp-select
+        *ngFor="let s of data?.component?.select"
+        [data]="s"
+      ></app-bp-select>
+    </ng-container>
+
+    <ng-container *ngIf="data?.component?.button">
+      <div
+        [ngClass]="data?.component?.class"
+        [ngStyle]="data?.component?.style['default']"
+      >
+        <app-bp-button *ngFor="let b of data.component.button" [data]="b">
+        </app-bp-button>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="data?.component?.toggle">
+    <app-bp-slide-toggle
+      *ngFor="let sli of data?.component?.toggle"
+      [data]="sli"
+    ></app-bp-slide-toggle>
+  </ng-container>
+
+  <ng-container *ngIf="data?.component?.slider">
+    <app-placement-slider
+      *ngFor="let sli of data?.component?.slider; let i = index"
+      [data]="sli"
+    >
+      <ng-container *ngIf="i === data?.component?.slider.length - 1">
+        <app-bp-checkbox
+          *ngFor="let ch of data?.component?.checkbox; let i = index"
+          [data]="ch"
+        ></app-bp-checkbox>
+      </ng-container>
+    </app-placement-slider>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="data?.tabs">
+  <!-- Handle tabs -->
+  <app-build-plate-tab [data]="data.tabs"></app-build-plate-tab>
+</ng-container>

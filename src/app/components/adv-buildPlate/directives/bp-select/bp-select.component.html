@@ -1,0 +1,8 @@
+<mat-form-field [ngStyle]="data.style">
+  <mat-label *ngIf="data.label">{{ data.label }}</mat-label>
+  <mat-select [(value)]="data.selected">
+    <mat-option value="opt" *ngFor="let opt of data.options">{{
+      opt
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>

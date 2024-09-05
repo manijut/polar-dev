@@ -1,0 +1,13 @@
+<mat-tab-group
+  dynamicHeight="true"
+  mat-stretch-tabs
+  mat-no-pagination
+  mat-border-bottom
+  color="primary"
+>
+  <mat-tab *ngFor="let tab of data" [label]="tab.label">
+    <app-build-plate-tab-content
+      [content]="tab.content"
+    ></app-build-plate-tab-content>
+  </mat-tab>
+</mat-tab-group>

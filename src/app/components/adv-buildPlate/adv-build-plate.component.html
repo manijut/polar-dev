@@ -1,0 +1,31 @@
+<div class="page-wrapper page-wrapper--widescreen page-wrapper--build-plate">
+  <div class="page-outer-wrapper">
+    <div class="page-inner-wrapper">
+      <div class="content" fxFlex="100">
+        <ng-container *ngFor="let item of renderContent.schema">
+          <ng-container *ngIf="item.visuals">
+            <!-- Handle visuals if needed -->
+            <div
+              class="build-plate-canvas-wrapper"
+              fxFlex="65"
+              (mousedown)="$event.stopPropagation()"
+            >
+              <div id="build-plate-canvas">
+                <!-- Optional: Handle visuals here -->
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="item.controls">
+            <!-- Handle controls -->
+            <div fxFlex="35">
+              <app-build-plate-controls
+                [data]="item.controls"
+              ></app-build-plate-controls>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

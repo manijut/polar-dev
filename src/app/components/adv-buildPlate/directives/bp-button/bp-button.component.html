@@ -1,0 +1,60 @@
+<section *ngIf="data?.mui?.type === 'basic'">
+  <button mat-button [disabled]="data.disabled" [color]="data.mui.color">
+    {{ data.label }}
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'raised'">
+  <button mat-raised-button [disabled]="data.disabled" [color]="data.mui.color">
+    {{ data.label }}
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'stroked'">
+  <button
+    mat-stroked-button
+    [disabled]="data.disabled"
+    [color]="data.mui.color"
+  >
+    {{ data.label }}
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'flat'">
+  <button mat-flat-button [disabled]="data.disabled" [color]="data.mui.color">
+    {{ data.label }}
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'icon'">
+  <button
+    mat-icon-button
+    [disabled]="data.disabled"
+    [color]="data.mui.color"
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>{{ data.icon }}</mat-icon>
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'fab'">
+  <button
+    mat-fab
+    aria-label="Example icon button with a delete icon"
+    [disabled]="data.disabled"
+    [color]="data.mui.color"
+  >
+    <mat-icon>{{ data.icon }}</mat-icon>
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'mini_fab'">
+  <button
+    mat-mini-fab
+    aria-label="Example icon button with a menu icon"
+    [disabled]="data.disabled"
+    [color]="data.mui.color"
+  >
+    <mat-icon>{{ data.icon }}</mat-icon>
+  </button>
+</section>
+<section *ngIf="data?.mui?.type === 'ext_fab'">
+  <button mat-fab extended [disabled]="data.disabled" [color]="data.mui.color">
+    <mat-icon>{{ data.icon }}</mat-icon>
+    {{ data.label }}
+  </button>
+</section>

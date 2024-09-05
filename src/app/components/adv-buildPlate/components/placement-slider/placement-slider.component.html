@@ -1,0 +1,12 @@
+<div [ngStyle]="data.style">
+  <div>
+    <span [ngClass]="data.labelClass">{{ data.label }}</span>
+  </div>
+  <ng-container *ngFor="let item of data.input">
+    <div [ngStyle]="item.style">
+      <app-bp-input [data]="item"></app-bp-input>
+    </div>
+  </ng-container>
+  <app-bp-slider [data]="data" [classes]="classes"></app-bp-slider>
+  <ng-content></ng-content>
+</div>
