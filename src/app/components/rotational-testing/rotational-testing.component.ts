@@ -413,91 +413,31 @@ export class RotationalTestingComponent implements OnInit {
     // Update bounding box with improved handling
     this.updateBoundingBox(this.selectedObject);
   }
-
-  private normalizeAngle(angle: number): number {
-    // Normalize angle to 0-360 range
-    angle = angle % 360;
-    return angle < 0 ? angle + 360 : angle;
-  }
-
-  // updateBoundingBox(stl: any) {
-  //   if (stl) {
-  //     this.scene.remove(this.bboxOfSelectedObject);
-  //     this.bboxOfSelectedObject = new THREE.BoxHelper(stl, 0x2196f3);
-  //     this.bboxOfSelectedObject.update();
-
-  //     // CHECK IF OBJECT IS OUT OF BUILD PLATE
-  //     this.bboxOfSelectedObject.geometry.computeBoundingBox();
-  //     this.restricted = this.rotationalTestingService.evaluatePlateBoundary(
-  //       PRINTER_CONFIG,
-  //       this.bboxOfSelectedObject.geometry.boundingBox,
-  //       {}
-  //     );
-  //     stl.restricted = this.restricted;
-  //     if (this.restricted) {
-  //       this.bboxOfSelectedObject = new THREE.BoxHelper(stl, 0xff5333);
-  //       this.bboxOfSelectedObject.update();
-  //     }
-
-  //     this.scene.add(this.bboxOfSelectedObject);
-  //   }
-  // }
-
+  
   updateBoundingBox(stl: any) {
     if (stl) {
-        this.scene.remove(this.bboxOfSelectedObject);
-        
-        // Compute world-space bounding box
-        const geometry = stl.geometry;
-        const worldMatrix = stl.matrixWorld;
-        
-        // Create a temporary geometry to apply transformations
-        const vertices:any = Array.from(geometry.attributes.position.array);
-        const worldVertices = [];
-        
-        // Transform all vertices to world space
-        for (let i = 0; i < vertices.length; i += 3) {
-            const vertex = new THREE.Vector3(vertices[i], vertices[i + 1], vertices[i + 2]);
-            vertex.applyMatrix4(worldMatrix);
-            worldVertices.push(vertex);
-        }
-        
-        // Create a new geometry from transformed vertices
-        const tempGeometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(worldVertices.length * 3);
-        worldVertices.forEach((vertex, i) => {
-            positions[i * 3] = vertex.x;
-            positions[i * 3 + 1] = vertex.y;
-            positions[i * 3 + 2] = vertex.z;
-        });
-        tempGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        
-        // Create box helper using the transformed geometry
-        const tempMesh = new THREE.Mesh(tempGeometry);
-        this.bboxOfSelectedObject = new THREE.BoxHelper(tempMesh, 0x2196f3);
-        
-        // Check if object is out of build plate
-        tempGeometry.computeBoundingBox();
-        const boundingBox = tempGeometry.boundingBox;
-        if (boundingBox) {
-            this.restricted = this.rotationalTestingService.evaluatePlateBoundary(
-                PRINTER_CONFIG,
-                boundingBox,
-                {}
-            );
-        }
-        
-        stl.restricted = this.restricted;
-        if (this.restricted) {
-            this.bboxOfSelectedObject = new THREE.BoxHelper(tempMesh, 0xff5333);
-        }
+      this.scene.remove(this.bboxOfSelectedObject);
+      this.bboxOfSelectedObject = new THREE.BoxHelper(stl, 0x2196f3);
+      this.bboxOfSelectedObject.update();
 
-        this.scene.add(this.bboxOfSelectedObject);
-        
-        // Clean up
-        tempGeometry.dispose();
+      // CHECK IF OBJECT IS OUT OF BUILD PLATE
+      this.bboxOfSelectedObject.geometry.computeBoundingBox();
+      this.restricted = this.rotationalTestingService.evaluatePlateBoundary(
+        PRINTER_CONFIG,
+        this.bboxOfSelectedObject.geometry.boundingBox,
+        {}
+      );
+      stl.restricted = this.restricted;
+      if (this.restricted) {
+        this.bboxOfSelectedObject = new THREE.BoxHelper(stl, 0xff5333);
+        this.bboxOfSelectedObject.update();
+      }
+
+      this.scene.add(this.bboxOfSelectedObject);
     }
-}
+  }
+
+
 
 
   removeBoundingBox() {
