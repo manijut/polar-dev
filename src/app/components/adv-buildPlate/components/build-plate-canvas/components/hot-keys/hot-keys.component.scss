@@ -1,0 +1,26 @@
+.canvas-hotkeys {
+  position: absolute;
+  left: 0.8em;
+  bottom: 0.8em;
+  p {
+    position: relative;
+    margin-bottom: 0;
+    color: white;
+    float: left;
+    transform: skew(10deg);
+    background: transparentize(#4285f4, 0.25);
+    border-radius: 6px;
+    padding: 0.7em 0.5em;
+    margin-left: 0.5em;
+    font-weight: 400;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: "767px") {
+  .canvas-hotkeys {
+    opacity: 0;
+  }
+}

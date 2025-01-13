@@ -23,6 +23,7 @@ export const PRINT_SETTINGS_TAB = {
           'column-gap': '5px',
         },
       },
+      showSpaceUtilizeBtn: true,
       select: [
         {
           label: 'Configurations',

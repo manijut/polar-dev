@@ -1,4 +1,4 @@
-interface SelectComponent {
+export interface SelectComponent {
   label: string;
   options: string[];
   selected: string;
@@ -7,9 +7,10 @@ interface SelectComponent {
   trigger: string;
   optionsFormat: string;
   style?: object;
+  class?: string;
 }
 
-interface ButtonComponent {
+export interface ButtonComponent {
   label: string;
   disabled: boolean;
   onClick: () => void;
@@ -21,28 +22,47 @@ interface ButtonComponent {
   mui: { type: string; color: string };
 }
 
-interface TabContent {
-  controls?: any;
+export interface ComponentStyle {
+  default: object;
+  [key: string]: object;
 }
 
-interface Tab {
+export interface Component {
+  style: ComponentStyle;
+  select?: SelectComponent[];
+  button?: ButtonComponent[];
+  input?: object[];
+  classes?: {
+    main: string;
+    innerMain: string;
+    subInnerMain: string;
+    [key: string]: string;
+  };
+  orca_config?: {
+    input: object[];
+    select: object[];
+  };
+}
+
+export interface TabContent {
+  component?: Component;
+  tabs?: Tab[];
+}
+
+export interface Tab {
   visible: boolean;
   label: string;
   content: TabContent;
 }
 
-export interface IControls {
-  component: {
-    style: any;
-    select: SelectComponent[];
-    button: ButtonComponent[];
-  };
+export interface Controls {
+  component: Component;
   tabs: Tab[];
 }
 
-interface UISchema {
+export interface UISchema {
   visuals: object;
-  controls: IControls;
+  controls: Controls;
 }
 
 export interface UIState {

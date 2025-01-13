@@ -4,6 +4,7 @@
   mat-no-pagination
   mat-border-bottom
   color="primary"
+  *ngIf="data"
 >
   <mat-tab *ngFor="let tab of data" [label]="tab.label">
     <app-build-plate-tab-content

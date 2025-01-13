@@ -1,0 +1,33 @@
+.canvas-dimension {
+  position: absolute;
+  right: 0.8em;
+  bottom: 0.8em;
+  p {
+    position: relative;
+    margin-bottom: 0;
+    color: white;
+    float: left;
+    transform: skew(-10deg);
+    background: transparentize(#4285f4, 0.25);
+    border-radius: 6px;
+    padding: 0.7em 0.5em;
+    margin-right: 0.5em;
+    font-weight: 400;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+.invalid-dimension p {
+  background: #ff5333 !important;
+}
+
+@media only screen and (max-width: "767px") {
+  .canvas-dimension {
+    left: 0.8em;
+    right: auto;
+    p {
+      transform: skew(10deg);
+    }
+  }
+}

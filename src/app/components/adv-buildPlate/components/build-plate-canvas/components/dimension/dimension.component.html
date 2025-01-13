@@ -1,0 +1,11 @@
+<div
+  class="canvas-dimension"
+  [ngClass]="{ 'invalid-dimension': data.restricted }"
+>
+  <p *ngFor="let item of data.data">
+    {{ item.label }}
+    {{
+      item.value ? (item.value | number : "0.1-2") : (0.0 | number : "2.0-0")
+    }}
+  </p>
+</div>

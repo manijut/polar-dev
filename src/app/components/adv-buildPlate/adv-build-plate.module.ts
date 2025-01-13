@@ -15,6 +15,11 @@ import { PlacementSliderComponent } from './components/placement-slider/placemen
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { BpCheckboxComponent } from './directives/bp-checkbox/bp-checkbox.component';
 import { RequestTabContentComponent } from './components/request-tab-content/request-tab-content.component';
+import { BuildPlateCanvasComponent } from './components/build-plate-canvas/build-plate-canvas.component';
+import { CameraControlsComponent } from './components/build-plate-canvas/components/camera-controls/camera-controls.component';
+import { HotKeysComponent } from './components/build-plate-canvas/components/hot-keys/hot-keys.component';
+import { ToolBarComponent } from './components/build-plate-canvas/components/tool-bar/tool-bar.component';
+import { DimensionComponent } from './components/build-plate-canvas/components/dimension/dimension.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,11 @@ import { RequestTabContentComponent } from './components/request-tab-content/req
     PlacementSliderComponent,
     BpCheckboxComponent,
     RequestTabContentComponent,
+    BuildPlateCanvasComponent,
+    CameraControlsComponent,
+    HotKeysComponent,
+    ToolBarComponent,
+    DimensionComponent,
   ],
   imports: [CoreModule, CommonModule, NgxSliderModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

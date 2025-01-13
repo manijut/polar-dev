@@ -1,0 +1,80 @@
+.camera_wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  border: 1px solid red;
+  .control-btn-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 10em;
+    height: 10em;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    // background-color: $dark-gray;
+    // @include primary-shadow($primary-shadow);
+    transition: 0.5s all;
+    z-index: 4;
+
+    &:hover {
+      background-color: white;
+      &:hover {
+        .material-icons.md-light {
+          //   color: $dark-gray;
+        }
+      }
+      .center-btn {
+        color: white;
+      }
+      .center-btn {
+        .material-icons.md-light {
+          color: white;
+        }
+      }
+    }
+    .button {
+      position: absolute;
+      margin: 0;
+      &:hover {
+        .material-icons {
+          //   color: $primary-color;
+        }
+      }
+    }
+    .up-btn {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .left-btn {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .right-btn {
+      right: 0;
+      top: 50%;
+      left: 35%;
+      transform: translateY(-50%);
+    }
+    .down-btn {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .center-btn {
+      background-color: #4285f4;
+      top: 50%;
+      left: -18%;
+      transform: translate(-50%, -50%);
+      //   @include primary-shadow($primary-shadow);
+      &:hover {
+        .material-icons {
+          color: white !important;
+        }
+      }
+    }
+  }
+}

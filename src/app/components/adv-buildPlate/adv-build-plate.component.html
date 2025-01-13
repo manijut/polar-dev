@@ -1,24 +1,27 @@
 <div class="page-wrapper page-wrapper--widescreen page-wrapper--build-plate">
   <div class="page-outer-wrapper">
     <div class="page-inner-wrapper">
-      <div class="content" fxFlex="100">
+      <div class="content" fxFlex="100" fxLayoutGap="20px">
         <ng-container *ngFor="let item of renderContent.schema">
           <ng-container *ngIf="item.visuals">
             <!-- Handle visuals if needed -->
             <div
               class="build-plate-canvas-wrapper"
               fxFlex="65"
+              [ngStyle]="item.visuals.component.style.plate_style"
               (mousedown)="$event.stopPropagation()"
             >
-              <div id="build-plate-canvas">
-                <!-- Optional: Handle visuals here -->
-              </div>
+              <app-build-plate-canvas [data]="item.visuals.component">
+              </app-build-plate-canvas>
             </div>
           </ng-container>
 
           <ng-container *ngIf="item.controls">
             <!-- Handle controls -->
-            <div fxFlex="35">
+            <div
+              fxFlex="35"
+              [ngStyle]="item.controls.component.style.controls_panel"
+            >
               <app-build-plate-controls
                 [data]="item.controls"
               ></app-build-plate-controls>

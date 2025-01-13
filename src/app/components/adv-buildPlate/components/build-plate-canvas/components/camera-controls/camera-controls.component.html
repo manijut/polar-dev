@@ -1,0 +1,32 @@
+<div class="camera_wrapper">
+  <div class="control-btn-wrapper">
+    <app-bp-button
+      *ngFor="let btn of data.buttons.controls"
+      [data]="btn"
+    ></app-bp-button>
+  </div>
+  <div class="zoom-btn-wrapper">
+    <div class="icon-button">
+      <button
+        mat-icon-button
+        aria-label="cameraPlus"
+        matTooltip="Zoom in"
+        matTooltipPosition="below"
+        class="Btn"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="icon-button">
+      <button
+        mat-icon-button
+        aria-label="cameraMinus"
+        matTooltip="Zoom out"
+        matTooltipPosition="below"
+        class="Btn"
+      >
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

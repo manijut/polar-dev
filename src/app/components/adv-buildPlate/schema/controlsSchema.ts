@@ -1,10 +1,10 @@
-import { IControls } from './interface';
+import { Controls } from './interface';
 import { OPTIONS_TAB } from './main-tabs/optionsTabSchema';
 import { PLACEMENT_TAB } from './main-tabs/placementTabSchema';
 import { PRINTER_TAB } from './main-tabs/printerTabSchema';
 import { PRINT_SETTINGS_TAB } from './main-tabs/printSettingTabSchema';
 
-export const CONTROLS: IControls = {
+export const CONTROLS: Controls = {
   component: {
     style: {
       default: {
@@ -12,6 +12,15 @@ export const CONTROLS: IControls = {
         'align-items': 'center',
         width: '100%',
         'column-gap': '5px',
+      },
+      controls_panel: {
+        // border: '1px solid rgba(0,0,0,0.12)',
+        border: '1px solid white',
+        width: '100%',
+        height: '94vh',
+        'min-height': '94vh',
+        'overflow-x': 'hidden',
+        padding: '1em 1em 1em .5em',
       },
     },
     select: [
